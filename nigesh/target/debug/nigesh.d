@@ -1,0 +1,1 @@
+/home/shittake/code/rustshit/nigesh/target/debug/nigesh: /home/shittake/code/rustshit/nigesh/src/app.rs /home/shittake/code/rustshit/nigesh/src/event.rs /home/shittake/code/rustshit/nigesh/src/main.rs /home/shittake/code/rustshit/nigesh/src/tui.rs /home/shittake/code/rustshit/nigesh/src/ui.rs

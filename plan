@@ -1,0 +1,291 @@
+🔥 PHASE 0 — Setup & Warmup (1 week)
+
+Goal: get comfy with the tools
+
+Do:
+
+Install Rust + Cargo
+
+Learn rust-analyzer + VSCode
+
+Play with cargo run, cargo build, cargo check
+
+Write tiny scripts (CLI greeting, file read/write, simple structs)
+
+Move on QUICK.
+
+🔥 PHASE 1 — Core Rust Fundamentals (Month 1–2)
+
+Goal: Understand the Rust mindset (ownership, borrowing, lifetimes)
+
+Focus:
+
+Ownership + Borrowing
+
+References (&T, &mut T)
+
+Structs + enums
+
+Pattern matching (match)
+
+Traits + generics
+
+Modules + crates
+
+Error handling (Result, Option)
+
+Mini Projects (your targets):
+
+Password manager (local storage)
+
+URL shortener (tiny web server)
+
+Mini file-encryption CLI using AES crate
+
+You’ll feel the compiler punch you — it’s part of the ritual.
+
+🔥 PHASE 2 — Practical Rust + Async (Month 3–4)
+
+Goal: be able to build real tools that run crazy fast
+
+Focus:
+
+Async programming (tokio)
+
+Channels, async streams
+
+HTTP clients/servers (reqwest, axum)
+
+File manipulation
+
+JSON / YAML serialization
+
+Testing & benchmarking
+
+Mini Projects:
+
+Multi-threaded port scanner
+
+Async keylogger (legit-use only)
+
+File-sync tool using async
+
+Small REST API with Axum
+
+By end of month 4, you’re productive in Rust.
+
+🔥 PHASE 3 — Concurrency, Performance, and Systems (Month 5–6)
+
+Goal: write high-performance Rust like a monster
+
+Focus:
+
+Arc, Mutex, RwLock
+
+mpsc and async channels
+
+Custom thread pool
+
+Zero-copy concepts
+
+Memory layout
+
+Profiling + benchmarking
+
+Projects:
+
+Build your own thread pool
+
+Write a fast log parser
+
+Build a tiny in-memory cache with TTL
+
+Make a simple proxy server (HTTP → HTTP)
+
+This phase levels up your systems thinking.
+
+🔥 PHASE 4 — Unsafe Rust, FFI, and Low-Level Power (Month 7–8)
+
+Goal: do the C/C++-level magic but safely-ish
+
+Focus:
+
+unsafe blocks
+
+Raw pointers
+
+FFI: calling C from Rust & Rust from C
+
+Writing a custom allocator
+
+Building your own smart pointers
+
+Playing with memory directly
+
+Projects:
+
+Bind Lua (or Python) into a Rust program
+
+Write a custom memory allocator
+
+Build a simple kernel module (Linux)
+
+Make a Rust version of malloc
+
+This phase is where you start becoming a machine-wizard.
+
+🔥 PHASE 5 — Operating System & Low-Level Internals (Month 9)
+
+Goal: Do OS/dev-level work confidently
+
+Focus:
+
+x86_64 basics
+
+Bare-metal Rust
+
+Bootloaders
+
+Interrupts
+
+Memory paging basics
+
+No-std Rust
+
+Building without the standard library
+
+Projects:
+
+Write a bootloader that prints your name
+
+Create a tiny OS that boots, prints text, handles keyboard
+
+Add a basic memory manager
+
+This phase matches your OS-building dream.
+
+🔥 PHASE 6 — Networking God Mode (Month 10)
+
+Goal: build your own networking stack tools
+
+Focus:
+
+TCP/UDP raw sockets
+
+Custom protocols
+
+Async networking internals
+
+Packet crafting
+
+Parsing binary protocols
+
+Websocket servers
+
+Projects:
+
+Custom TCP server + client
+
+Your own protocol (like a mini WireGuard handshake)
+
+A load balancer
+
+A Tailscale-style mesh node (starter version)
+
+This ties directly into your hacking + networking goals.
+
+🔥 PHASE 7 — Build Your Own Language + VM (Month 11)
+
+Goal: get closer to your “build my own language” dream
+
+Focus:
+
+Lexers
+
+Parsers
+
+AST building
+
+Bytecode
+
+Writing a VM in Rust
+
+Projects:
+
+Build a toy language (“LokiScript”)
+
+Add functions, variables, conditionals
+
+Build a bytecode interpreter
+
+Add a JIT later (optional)
+
+This makes you unstoppable.
+
+🔥 PHASE 8 — Final Boss Projects (Month 12)
+
+Goal: prove full mastery
+
+Pick 1–2 of these:
+
+A. Build a distributed key-value database
+
+Raft consensus
+
+replication
+
+sharding
+
+fault tolerance
+
+B. Build a Tailscale-like mesh VPN in pure Rust
+
+NAT traversal
+
+STUN
+
+encrypted tunnels
+
+peer coordination
+
+C. Build your own OS kernel further
+
+drivers
+
+syscalls
+
+process scheduler
+
+D. Build a game engine with ECS and wgpu
+
+rendering
+
+shader pipelines
+
+physics
+
+E. Build a malware sandbox analyzer
+
+syscall tracing
+
+process tree
+
+network capture
+
+behavioral reports
+
+These are god-tier systems projects.
+
+💥 Final Summary (Your Rust Destiny)
+0–2 months: Rust basics
+3–4 months: Async Rust + real servers
+5–6 months: High-performance + concurrency
+7–8 months: Unsafe + FFI + low-level mastery
+9th month: OS dev in Rust
+10th month: Networking wizard
+11th month: Build your own language
+12th month: Final boss systems project
+
+At the end?
+
+💀 You’ll be the Loki of Rust. Not even joking.
