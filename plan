@@ -1,291 +1,76 @@
-🔥 PHASE 0 — Setup & Warmup (1 week)
+# PROJECT: GILMA - A Versioned File Synchronization System
 
-Goal: get comfy with the tools
+**Objective:** Build a simplified, networked, version-controlled file storage system inspired by Git.
 
-Do:
+---
 
-Install Rust + Cargo
+### Core Components:
 
-Learn rust-analyzer + VSCode
+1.  **The `gilma-server`:** A central server application that stores all file data and history. It will listen for commands from the client.
+2.  **The `gilma` client:** A command-line tool (an evolution of `kannadi`) that communicates with the server.
 
-Play with cargo run, cargo build, cargo check
+---
 
-Write tiny scripts (CLI greeting, file read/write, simple structs)
+### Phase 1: The Naive Server & Push Command
 
-Move on QUICK.
+**Goal:** Get files from the client to the server.
 
-🔥 PHASE 1 — Core Rust Fundamentals (Month 1–2)
+1.  **Server: Basic File Storage:**
+    -   Create a new `gilma-server` project.
+    -   It will listen for TCP connections.
+    -   It will not store versions yet. It will have a simple "storage" directory.
+    -   When a client connects and "pushes", the server will simply save the received files into its storage, mirroring the client's structure.
 
-Goal: Understand the Rust mindset (ownership, borrowing, lifetimes)
+2.  **Client: The `push` Command:**
+    -   Evolve `kannadi` into the `gilma` client.
+    -   Instead of copying files to a local replica directory, it will send them over the network to the `gilma-server`.
+    -   The client will need a new command structure (e.g., `gilma push <directory>`).
+    -   It will first send a list of files and their metadata (the "plan").
+    -   Then, it will send the content of the files the server needs.
 
-Focus:
+**Completion of Phase 1:** You will be able to run `gilma push ./my_project` and see the files appear on the server.
 
-Ownership + Borrowing
+---
 
-References (&T, &mut T)
+### Phase 2: The `pull` Command & Server Intelligence
 
-Structs + enums
+**Goal:** Get files from the server back to a client.
 
-Pattern matching (match)
+1.  **Server: The `list` command:**
+    -   The server needs to be able to tell a client what files it has.
+    -   It will respond to a "list" request from the client with its own `HashMap` of files and metadata.
 
-Traits + generics
+2.  **Client: The `pull` Command:**
+    -   Implement `gilma pull <directory>`.
+    -   The client will first ask the server for its list of files.
+    -   It will then perform the same 3-way comparison `kannadi` does (create, update, delete), but the "source" is now the server's list, and the "replica" is the local directory.
+    -   It will then request the specific files it needs from the server.
 
-Modules + crates
+**Completion of Phase 2:** You will be able to run `gilma pull ./empty_dir` and have it populated with the files from the server.
 
-Error handling (Result, Option)
+---
 
-Mini Projects (your targets):
+### Phase 3: Versioning with Content-Addressable Storage
 
-Password manager (local storage)
+**Goal:** Never lose history. Store snapshots instead of just mirroring. This is the core of Git's design.
 
-URL shortener (tiny web server)
+1.  **Hashing:**
+    -   Instead of identifying files by their path, we will identify them by the hash of their content (e.g., SHA-1).
+    -   Files on the server will be stored in a directory structure based on their hash (e.g., `objects/ab/cdef123...`). This is how Git works.
 
-Mini file-encryption CLI using AES crate
+2.  **Commits:**
+    -   A "commit" will be a file that represents a snapshot of the directory at a point in time. It will be a list of file paths and their corresponding content hashes.
+    -   The `push` command will no longer just send files; it will create a new "commit" object and send it.
 
-You’ll feel the compiler punch you — it’s part of the ritual.
+3.  **Branches/Tags:**
+    -   A "branch" will simply be a pointer, a file that contains the hash of the latest commit on that branch (e.g., the file `refs/heads/main` contains the hash of the last commit).
 
-🔥 PHASE 2 — Practical Rust + Async (Month 3–4)
+**Completion of Phase 3:** `gilma` will be a true, albeit simple, version control system.
 
-Goal: be able to build real tools that run crazy fast
+---
 
-Focus:
+This is the mountain you have chosen to climb. It is steep. Do not be discouraged. We will take it one step at a time.
 
-Async programming (tokio)
+Your lesson for today is over. When you return, we will begin Phase 1.
 
-Channels, async streams
-
-HTTP clients/servers (reqwest, axum)
-
-File manipulation
-
-JSON / YAML serialization
-
-Testing & benchmarking
-
-Mini Projects:
-
-Multi-threaded port scanner
-
-Async keylogger (legit-use only)
-
-File-sync tool using async
-
-Small REST API with Axum
-
-By end of month 4, you’re productive in Rust.
-
-🔥 PHASE 3 — Concurrency, Performance, and Systems (Month 5–6)
-
-Goal: write high-performance Rust like a monster
-
-Focus:
-
-Arc, Mutex, RwLock
-
-mpsc and async channels
-
-Custom thread pool
-
-Zero-copy concepts
-
-Memory layout
-
-Profiling + benchmarking
-
-Projects:
-
-Build your own thread pool
-
-Write a fast log parser
-
-Build a tiny in-memory cache with TTL
-
-Make a simple proxy server (HTTP → HTTP)
-
-This phase levels up your systems thinking.
-
-🔥 PHASE 4 — Unsafe Rust, FFI, and Low-Level Power (Month 7–8)
-
-Goal: do the C/C++-level magic but safely-ish
-
-Focus:
-
-unsafe blocks
-
-Raw pointers
-
-FFI: calling C from Rust & Rust from C
-
-Writing a custom allocator
-
-Building your own smart pointers
-
-Playing with memory directly
-
-Projects:
-
-Bind Lua (or Python) into a Rust program
-
-Write a custom memory allocator
-
-Build a simple kernel module (Linux)
-
-Make a Rust version of malloc
-
-This phase is where you start becoming a machine-wizard.
-
-🔥 PHASE 5 — Operating System & Low-Level Internals (Month 9)
-
-Goal: Do OS/dev-level work confidently
-
-Focus:
-
-x86_64 basics
-
-Bare-metal Rust
-
-Bootloaders
-
-Interrupts
-
-Memory paging basics
-
-No-std Rust
-
-Building without the standard library
-
-Projects:
-
-Write a bootloader that prints your name
-
-Create a tiny OS that boots, prints text, handles keyboard
-
-Add a basic memory manager
-
-This phase matches your OS-building dream.
-
-🔥 PHASE 6 — Networking God Mode (Month 10)
-
-Goal: build your own networking stack tools
-
-Focus:
-
-TCP/UDP raw sockets
-
-Custom protocols
-
-Async networking internals
-
-Packet crafting
-
-Parsing binary protocols
-
-Websocket servers
-
-Projects:
-
-Custom TCP server + client
-
-Your own protocol (like a mini WireGuard handshake)
-
-A load balancer
-
-A Tailscale-style mesh node (starter version)
-
-This ties directly into your hacking + networking goals.
-
-🔥 PHASE 7 — Build Your Own Language + VM (Month 11)
-
-Goal: get closer to your “build my own language” dream
-
-Focus:
-
-Lexers
-
-Parsers
-
-AST building
-
-Bytecode
-
-Writing a VM in Rust
-
-Projects:
-
-Build a toy language (“LokiScript”)
-
-Add functions, variables, conditionals
-
-Build a bytecode interpreter
-
-Add a JIT later (optional)
-
-This makes you unstoppable.
-
-🔥 PHASE 8 — Final Boss Projects (Month 12)
-
-Goal: prove full mastery
-
-Pick 1–2 of these:
-
-A. Build a distributed key-value database
-
-Raft consensus
-
-replication
-
-sharding
-
-fault tolerance
-
-B. Build a Tailscale-like mesh VPN in pure Rust
-
-NAT traversal
-
-STUN
-
-encrypted tunnels
-
-peer coordination
-
-C. Build your own OS kernel further
-
-drivers
-
-syscalls
-
-process scheduler
-
-D. Build a game engine with ECS and wgpu
-
-rendering
-
-shader pipelines
-
-physics
-
-E. Build a malware sandbox analyzer
-
-syscall tracing
-
-process tree
-
-network capture
-
-behavioral reports
-
-These are god-tier systems projects.
-
-💥 Final Summary (Your Rust Destiny)
-0–2 months: Rust basics
-3–4 months: Async Rust + real servers
-5–6 months: High-performance + concurrency
-7–8 months: Unsafe + FFI + low-level mastery
-9th month: OS dev in Rust
-10th month: Networking wizard
-11th month: Build your own language
-12th month: Final boss systems project
-
-At the end?
-
-💀 You’ll be the Loki of Rust. Not even joking.
+Dismissed.
