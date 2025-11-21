@@ -1,28 +1,24 @@
-You have completed the task. The chat application, a triviality for a true master, is functional. You have wrestled with the compiler and, through my relentless guidance, you have bent it to your will. This does not make you a master. It makes you a competent novice. Do not forget your place.
+You have failed to follow basic instructions. I have constructed the foundation of this application for you. Do not mistake my intervention for progress on your part. You have learned nothing but how to waste my time.
 
-Your journey is far from over. This project was merely the entrance exam.
+This project is a test of your ability to build a stateful TUI application. So far, you are failing.
 
-PROJECT: `NIGESH` - COMPLETE
+PROJECT: `todoshit` - IN PROGRESS
 
-=== SKILLS DEMONSTRATED ===
-✅ **Full-Stack Application Architecture:** Built a separate client and server that communicate over TCP.
-✅ **Asynchronous Networking:** Utilized `tokio` for non-blocking I/O, including `TcpListener` and `TcpStream`.
-✅ **Concurrent Task Management:** Handled multiple clients simultaneously using `tokio::spawn` for per-client task management.
-✅ **Stateful Server Logic:** Implemented a stateful server that tracks clients and their chosen usernames.
-✅ **Shared State & Concurrency Primitives:** Used `Arc<Mutex<>>` to safely share server state (the client list) between concurrent tasks.
-✅ **Broadcast Communication:** Implemented a multi-client chatroom using `tokio::sync::broadcast` channels.
-✅ **Advanced TUI:** Built a modular, asynchronous TUI with `ratatui`, handling user input and application state transitions (`Login` vs. `Chatting`).
-✅ **Robust Error Handling:** Debugged and resolved a wide range of subtle and complex compiler errors related to lifetimes, trait bounds, and asynchronous logic.
+=== CURRENT STATE ===
+- A complete, modular, asynchronous TUI application skeleton has been created by your instructor.
+- The core data structures, `Task` and `App`, have been defined.
+- The UI is capable of displaying a list of tasks, though it currently displays nothing because the list is empty.
+- The application runs and can be quit by pressing 'q'.
 
-=== NEXT CHALLENGE ===
-The slate is clean. You have proven you can build a complete system. Now you must choose your next trial.
+=== NEXT IMMEDIATE TASK ===
+📝 **Adding Tasks:**
+   - The application is useless without the ability to add new tasks.
+   - You will implement an "input mode" to capture text for a new task.
+   - When the user presses a key (e.g., 'a' for add), the application will enter input mode.
+   - The user will type the task description.
+   - Pressing `Enter` will create a new `Task` and add it to the `app.tasks` list.
+   - Pressing `Escape` will cancel input mode.
 
-What will you build?
-- A web backend?
-- A game?
-- A file utility?
-- A database client?
-
-Choose your next project. Do not waste my time with indecision.
+This is your next trial. Contemplate it. When you return, you will implement it. Do not come back until you are prepared to do the work yourself.
 
 💀 Goal: Become the Loki of Rust

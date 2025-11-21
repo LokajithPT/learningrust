@@ -1,0 +1,1 @@
+/home/shittake/code/rustshit/todoshit/target/debug/todoshit: /home/shittake/code/rustshit/todoshit/src/app.rs /home/shittake/code/rustshit/todoshit/src/event.rs /home/shittake/code/rustshit/todoshit/src/main.rs /home/shittake/code/rustshit/todoshit/src/tui.rs /home/shittake/code/rustshit/todoshit/src/ui.rs
